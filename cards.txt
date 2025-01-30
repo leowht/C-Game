@@ -1,0 +1,75 @@
+01 Yellow 0
+02 Red 0
+03 Green 0
+04 Blue 0
+
+11 Yellow 1
+12 Red 1
+13 Green 1
+14 Blue 1
+
+21 Yellow 2
+22 Red 2
+23 Green 2
+24 Blue 2
+
+31 Yellow 3
+32 Red 3
+33 Green 3
+34 Blue 3
+
+41 Yellow 4
+42 Red 4
+43 Green 4
+44 Blue 4
+
+51 Yellow 5
+52 Red 5
+53 Green 5
+54 Blue 5
+
+61 Yellow 6
+62 Red 6
+63 Green 6
+64 Blue 6
+
+71 Yellow 7
+72 Red 7
+73 Green 7
+74 Blue 7
+
+81 Yellow 8
+82 Red 8
+83 Green 8
+84 Blue 8
+
+91 Yellow 9
+92 Red 9
+93 Green 9
+94 Blue 9
+
+101 Yellow Skip
+102 Red Skip
+103 Green Skip
+104 Blue Skip
+
+201 Yellow +2
+202 Red +2
+203 Green +2
+204 Blue +2
+
+301 Yellow Reverse
+302 Red Reverse
+303 Green Reverse
+304 Blue Reverse
+
+400 Wild +4
+500 Wild
+600 Back
+
+Cards in deck :
+1 zero of each color
+2 1-9 of each color
+2 of each color action
+4 Wild
+4 wild +4

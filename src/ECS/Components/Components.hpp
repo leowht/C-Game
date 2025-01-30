@@ -101,6 +101,7 @@ struct Spawner {
  *
  * @param clicked Whether the entity has been clicked
  * @param sizeClickZone The size of the clickable zone
+ * @param onClick The function called upon click
  */
 struct Clickable {
     bool clicked;

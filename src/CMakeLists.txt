@@ -48,6 +48,10 @@ add_library(GameLib
     ECS/Systems/SpawnerSystem.hpp
 
     ECS/Timer/Timer.hpp
+
+
+    Game/CardStack/CardStack.cpp
+    Game/CardStack/CardStack.hpp
 )
 
 # Specify include directories for the library

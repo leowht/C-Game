@@ -12,7 +12,10 @@
 #include <ostream>
 #include <optional>
 
-#include "ECS/Workspace/Worpspace.hpp"
+#include "Workspace/Worpspace.hpp"
+
+#include "Game/CardStack/CardStack.hpp"
+
 #include "ECS/Core/Core.hpp"
 
 #endif /* !main */

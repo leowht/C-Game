@@ -8,17 +8,11 @@
 #ifndef WORKSPACE
 #define WORKSPACE
 
-#include "../Core/Core.hpp"
+#include "ECS/Core/Core.hpp"
 
 namespace Workspace
 {
     inline Core* _core = nullptr;
-
-    // void initialize()
-    // {
-    //     if (!_core)
-    //         _core = new Core();
-    // }
 
     void initialize(bool graphical)
     {
@@ -36,7 +30,14 @@ namespace Workspace
     {
         if (_core)
             return _core->entityManager.createEntity();
-        return -1;
+        throw std::runtime_error("Core is not initialized!");
+    }
+
+    template <typename T>
+    T& getComponent(Entity entity) {
+        if (_core)
+            return _core->componentRegistry.getComponent<T>(entity);
+        throw std::runtime_error("Core is not initialized!");
     }
 
     template <typename T>
@@ -44,17 +45,6 @@ namespace Workspace
         if (_core)
             _core->componentRegistry.addComponent(entity, component);
     }
-
-    // void update(void)
-    // {
-    //     if (_core)
-    //         _core->update();
-    // }
-
-    // bool isOpen(void)
-    // {
-    //     return _core && _core->isOpen();
-    // }
 
     void cleanup()
     {
