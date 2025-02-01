@@ -47,5 +47,26 @@ void Uno::draw_card(const std::string player)
 
 void Uno::rearrange_cards(const std::string player)
 {
-    
+    std::cout << "Player : " << player << std::endl;
+    if (player == "host") {
+        rearrange_player(_host_hand);
+    } else {
+        std::cout << "    Ordering Client" << std::endl;
+        rearrange_player(_client_hand);
+    }
+}
+
+void Uno::rearrange_player(const std::vector<Entity> hand)
+{
+    int hand_size = hand.size();
+    std::cout << "    Hand size " << hand_size << std::endl;
+    int card_size = 800 / hand_size;
+    int i = 0;
+
+    for (Entity card : hand) {
+        Position& pos = getComponent<Position>(card);
+
+        pos.pos[0] = (card_size * i) + 20;
+        i++;
+    }
 }

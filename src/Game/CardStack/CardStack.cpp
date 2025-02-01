@@ -11,10 +11,10 @@ CardStack::CardStack()
 {
     create_stack();
 
-    for (int num : _cardstack) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    // for (int num : _cardstack) {
+    //     std::cout << num << " ";
+    // }
+    // std::cout << std::endl;
 }
 
 // CardStack::~CardStack()
