@@ -23,6 +23,7 @@ set(EXECUTABLE_SOURCES src/main.cpp)
 #     SYSTEM)
 # FetchContent_MakeAvailable(SFML)
 
+set(SFML_DIR "C:/SFML-2.5.0/lib/cmake/SFML")
 find_package(SFML 2.5 COMPONENTS system window graphics audio network REQUIRED)
 
 # Add executable
