@@ -20,20 +20,21 @@ int main()
 {
     initialize(true);
 
-    Entity card = create();
-    addComponent<Position>(card, { {350, 400} });
-    addComponent<Velocity>(card, { {0, 0} });
-    addComponent<Renderable>(card, { 1, 0, {0.3, 0.3} });
-    addComponent<Clickable>(card, { false, {0, 0}, std::bind(onCardClick, card) });
+    // Entity card = create();
+    // addComponent<Position>(card, { {350, 400} });
+    // addComponent<Velocity>(card, { {0, 0} });
+    // addComponent<Renderable>(card, { 1, 0, {0.3, 0.3} });
+    // addComponent<Clickable>(card, { false, {0, 0}, std::bind(onCardClick, card) });
 
-    Entity player = create();
-    addComponent<Position>(player, { {400, 400} });
-    addComponent<Velocity>(player, { {0, 0} });
-    addComponent<Renderable>(player, { 01, 10, {0.3, 0.3} });
-    addComponent<Clickable>(player, { false, {0, 0}, std::bind(onCardClick, player) });
+    // Entity player = create();
+    // addComponent<Position>(player, { {400, 400} });
+    // addComponent<Velocity>(player, { {0, 0} });
+    // addComponent<Renderable>(player, { 01, 10, {0.3, 0.3} });
+    // addComponent<Clickable>(player, { false, {0, 0}, std::bind(onCardClick, player) });
 
-    CardStack cards;
-    cards.create_stack();
+    Uno uno;
+    // uno.draw_card("host");
+    uno.launch_game();
 
     run();
 

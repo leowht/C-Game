@@ -50,8 +50,14 @@ add_library(GameLib
     ECS/Timer/Timer.hpp
 
 
+    Workspace/Worpspace.cpp
+    Workspace/Worpspace.hpp
+
     Game/CardStack/CardStack.cpp
     Game/CardStack/CardStack.hpp
+
+    Game/Uno/Uno.cpp
+    Game/Uno/Uno.hpp
 )
 
 # Specify include directories for the library

@@ -15,6 +15,7 @@
 #include "Workspace/Worpspace.hpp"
 
 #include "Game/CardStack/CardStack.hpp"
+#include "Game/Uno/Uno.hpp"
 
 #include "ECS/Core/Core.hpp"
 

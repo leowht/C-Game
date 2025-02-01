@@ -19,7 +19,7 @@
 class CardStack
 {
 private:
-    std::vector<Entity> _cardstack;
+    std::vector<int> _cardstack;
     std::vector<int> _deck = {01, 02, 03, 04,
                             11, 12, 13, 14, 11, 12, 13, 14,
                             21, 22, 23, 24, 21, 22, 23, 24,
@@ -39,7 +39,9 @@ private:
 
 public:
     CardStack();
-    ~CardStack();
+    ~CardStack() = default;
+
+    int get_top_card(void);
 };
 
 #endif /* !CARDSTACK */
