@@ -18,6 +18,7 @@ private:
     std::vector<Entity> _host_hand;
     std::vector<Entity> _client_hand;
 
+    void rearrange_player(const std::vector<Entity> hand);
 public:
     Uno()
         : _cards() {};

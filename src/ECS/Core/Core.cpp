@@ -16,6 +16,8 @@ Core::Core(bool graphical)
     registerComponents();
     registerSystems();
     registerJSON();
+
+    timer.start();
 }
 
 Core::~Core()
@@ -91,32 +93,41 @@ void Core::registerJSON()
     // }
 }
 
-void Core::run()
+void Core::update()
 {
-    timer.start();
+    // timer.start();
 
     // Main game loop
 
-    std::cout << "before loop" << std::endl;
-    while (graphical->isWindowOpen() && true) {
-        const float deltaTime = timer.getSecondsElapsed();
+    // std::cout << "before loop" << std::endl;
 
-        if (timer.getSecondsElapsed() > 0.01) {
-            timer.reset();
-            // Update all systems
-            systemManager.updateSystems(deltaTime);
+    const float deltaTime = timer.getSecondsElapsed();
 
-            for (Entity entity = 0; entity < MAX_ENTITIES; ++entity) {
-                auto signature = componentRegistry.getEntitySignature(entity);
+    if (timer.getSecondsElapsed() > 0.01) {
+        timer.reset();
+        // Update all systems
+        systemManager.updateSystems(deltaTime);
 
-                if (signature.test(ComponentTypeIDGenerator::getTypeID<Position>())) {
-                    Position& pos = componentRegistry.getComponent<Position>(entity);
+        for (Entity entity = 0; entity < MAX_ENTITIES; ++entity) {
+            auto signature = componentRegistry.getEntitySignature(entity);
 
-                    if (pos.pos[0] < -100 || pos.pos[0] > 2000)
-                        componentRegistry.entityDestroyed(entity);
-                }
+            if (signature.test(ComponentTypeIDGenerator::getTypeID<Position>())) {
+                Position& pos = componentRegistry.getComponent<Position>(entity);
+
+                if (pos.pos[0] < -100 || pos.pos[0] > 2000)
+                    componentRegistry.entityDestroyed(entity);
             }
-            timer.start();
         }
+        timer.start();
     }
+}
+
+bool Core::window_open()
+{
+    return graphical->isWindowOpen();
+}
+
+void Core::create_host()
+{
+    return;
 }

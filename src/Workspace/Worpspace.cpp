@@ -13,21 +13,40 @@ void Workspace::initialize(bool graphical)
         _core = new Core(graphical);
 }
 
-void Workspace::run()
+void Workspace::update()
 {
-    if (_core)
-        _core->run();
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    _core->update();
 }
 
 Entity Workspace::create()
 {
-    if (_core)
-        return _core->entityManager.createEntity();
-    throw std::runtime_error("Core is not initialized!");
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    return _core->entityManager.createEntity();
 }
 
 void Workspace::cleanup()
 {
     delete _core;
     _core = nullptr;
+}
+
+bool Workspace::is_window_open()
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    return _core->window_open();
+}
+
+void Workspace::create_host()
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    _core->create_host();
 }

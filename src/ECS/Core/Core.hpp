@@ -95,7 +95,11 @@ public:
 
     ~Core();
 
-    void run();
+    void update();
+
+    bool window_open();
+
+    void create_host();
 };
 
 #endif /* !CORE */

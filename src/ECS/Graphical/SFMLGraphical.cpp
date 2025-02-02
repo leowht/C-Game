@@ -28,7 +28,7 @@ SFMLGraphical::~SFMLGraphical()
 bool SFMLGraphical::initialize()
 {
     // win_.create(sf::VideoMode::getDesktopMode(), "Game", sf::Style::Fullscreen);
-    win_.create(sf::VideoMode(800, 600), "Game");
+    win_.create(sf::VideoMode(800, 1000), "Game");
     win_.setFramerateLimit(60);
     init = true;
     return true;

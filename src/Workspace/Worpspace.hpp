@@ -14,10 +14,20 @@ namespace Workspace
 {
     inline Core* _core = nullptr;
 
+    // Core related functions
     void initialize(bool graphical);
-    void run();
-    Entity create();
+    void update();
     void cleanup();
+
+    // Entities related functions
+    Entity create();
+
+    // Graphical related functions
+    bool is_window_open();
+
+    // Network related functions
+    void create_host();
+
 
     template <typename T>
     T& getComponent(Entity entity) {

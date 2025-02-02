@@ -9,12 +9,12 @@
 
 using namespace Workspace;
 
-void onCardClick(Entity card)
-{
-    Position& pos = getComponent<Position>(card);
-    std::cout << "Position : " << pos.pos[0] << " " << pos.pos[1] << std::endl;
-    pos.pos[0] = pos.pos[1] = 100;
-}
+// void onCardClick(Entity card)
+// {
+//     Position& pos = getComponent<Position>(card);
+//     std::cout << "Position : " << pos.pos[0] << " " << pos.pos[1] << std::endl;
+//     pos.pos[0] = pos.pos[1] = 100;
+// }
 
 int main()
 {
@@ -33,10 +33,11 @@ int main()
     // addComponent<Clickable>(player, { false, {0, 0}, std::bind(onCardClick, player) });
 
     Uno uno;
-    // uno.draw_card("host");
     uno.launch_game();
 
-    run();
+    while (is_window_open()) {
+        update();
+    }
 
     return 0;
 }
