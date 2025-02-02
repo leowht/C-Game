@@ -31,7 +31,6 @@ add_executable(${PROJECT_NAME} ${EXECUTABLE_SOURCES})
 # Include project directories
 target_include_directories(${PROJECT_NAME}
     PUBLIC
-        ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/src
 )
 

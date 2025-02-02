@@ -118,8 +118,13 @@ void Core::update()
                     componentRegistry.entityDestroyed(entity);
             }
         }
+
         timer.start();
+
+        // if (host)
+        //     host->update();
     }
+
 }
 
 bool Core::window_open()
@@ -129,5 +134,14 @@ bool Core::window_open()
 
 void Core::create_host()
 {
-    return;
+    std::cout << "Trying to create host" << std::endl;
+    host = new Host(8000);
+    host->start();
+}
+
+void Core::create_client(char *ip)
+{
+    std::cout << "Trying to create client" << std::endl;
+    client = new Client();
+    client->start(ip);
 }

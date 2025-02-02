@@ -50,3 +50,11 @@ void Workspace::create_host()
 
     _core->create_host();
 }
+
+void Workspace::create_client(char *ip)
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    _core->create_client(ip);
+}

@@ -27,6 +27,7 @@ namespace Workspace
 
     // Network related functions
     void create_host();
+    void create_client(char *ip);
 
 
     template <typename T>

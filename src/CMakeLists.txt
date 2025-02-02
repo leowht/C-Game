@@ -32,6 +32,12 @@ add_library(GameLib
     ECS/JSONParser/JSONComponentParser.hpp
     ECS/JSONParser/JSONStorage.hpp
 
+    ECS/Network/Client/Client.cpp
+    ECS/Network/Client/Client.hpp
+
+    ECS/Network/Host/Host.cpp
+    ECS/Network/Host/Host.hpp
+
     # Scene manager ?
 
     ECS/SpawnerParser/SpawnerParser.cpp
