@@ -18,18 +18,25 @@ private:
     std::vector<Entity> _host_hand;
     std::vector<Entity> _client_hand;
 
+    void draw_card(const std::string player);
+
     void rearrange_player(const std::vector<Entity> hand);
+
+    void add_host_card();
+    void add_client_card(std::string card_number);
 public:
     Uno()
         : _cards() {};
     ~Uno() {};
 
+    // Host functions
     void launch_game();
-    void draw_card(const std::string player);
+
+    // Host & Client functions
     void rearrange_cards(const std::string player);
+
+    // Client functions
     void get_game();
-    void add_host_card();
-    void add_client_card(std::string card_number);
 };
 
 #endif /* !Uno */

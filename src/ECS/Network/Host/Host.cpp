@@ -9,9 +9,7 @@
 
 std::string make_daytime_string()
 {
-    // time_t now = time(0);
-    // return ctime(&now);
-    std::string test = "coucou !";
+    std::string test = "[Connected]";
     return test;
 }
 
@@ -36,26 +34,18 @@ void Host::accept_connections()
 
     asio::write(socket, asio::buffer(message));
 
-    std::cout << "Sent message to client: " << message << std::endl;
+    std::cout << "[SENT] " << message << std::endl;
 }
 
 void Host::start()
 {
-    // io_thread = std::make_unique<std::thread>([this]() {
-    //     try {
-            accept_connections();
-    //         io.run();
-    //     } catch (const std::exception &e) {
-    //         std::cerr << "Error: " << e.what() << std::endl;
-    //     }
-    // });
+    accept_connections();
 }
 
 void Host::send(std::string message)
 {
     try {
         asio::write(socket, asio::buffer(message));
-        std::cout << "Sent message to client: " << message << std::endl;
     } catch (const std::exception &e) {
         std::cerr << "Server sending message failed: " << e.what() << std::endl;
     }
@@ -70,7 +60,7 @@ std::string Host::recieve()
     // size_t len = asio::read(socket, asio::buffer(buffer), error);
 
     if (!error) {
-        std::cout << "Client says: " << std::string(buffer.data(), len) << std::endl;
+        std::cout << "[RECIEVED] " << std::string(buffer.data(), len) << std::endl;
         return std::string(buffer.data(), len);
     } else {
         std::cerr << "Error reading data: " << error.message() << std::endl;

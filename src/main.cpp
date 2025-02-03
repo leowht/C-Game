@@ -48,9 +48,11 @@ int main(int ac, char **av)
 {
     if (ac != 1 && ac != 2)
         return usage();
+
     initialize(true);
 
     Entity warning = create();
+
     if (ac == 1)
         addComponent<Text>(warning, { "Waiting for client to connect", 25, 1, {100, 500} });
     else if (ac == 2)
@@ -65,26 +67,6 @@ int main(int ac, char **av)
         host_loop(warning);
     else if (ac == 2)
         client_loop(av[1], warning);
-
-    // destroy(warning);
-
-    // Uno uno;
-    // uno.launch_game();
-
-    // std::string text = "This is a test";
-    // if (is_client())
-    //     _core->client_recieves();
-    // else if (is_host())
-    //     _core->host_sends(text);
-
-    while (is_window_open()) {
-        // std::string text = "This is a test";
-        // if (is_client())
-        //     _core->client_sends(text);
-        // else if (is_host())
-        //     _core->host_recieves();
-        update();
-    }
 
     return 0;
 }

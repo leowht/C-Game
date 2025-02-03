@@ -25,7 +25,6 @@ void Client::start(char *ip)
         asio::ip::tcp::resolver::query query(ip, "8000");
         asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(query);
 
-        // asio::ip::tcp::socket socket(io);
         asio::connect(socket, endpoints);
 
         std::array<char, 128> buffer;
@@ -33,7 +32,7 @@ void Client::start(char *ip)
 
         size_t len = socket.read_some(asio::buffer(buffer), error);
         if (!error) {
-            std::cout << "Server says: " << std::string(buffer.data(), len) << std::endl;
+            std::cout << "[RECIEVED] " << std::string(buffer.data(), len) << std::endl;
         } else {
             std::cerr << "Error reading data: " << error.message() << std::endl;
         }
@@ -61,7 +60,7 @@ std::string Client::recieve()
     // size_t len = asio::read(socket, asio::buffer(buffer), error);
 
     if (!error) {
-        std::cout << "Server says: " << std::string(buffer.data(), len) << std::endl;
+        std::cout << "[RECIEVED] " << std::string(buffer.data(), len) << std::endl;
         return std::string(buffer.data(), len);
     } else {
         std::cerr << "Error reading data: " << error.message() << std::endl;

@@ -33,11 +33,11 @@ void SFMLGraphical::updateInputState()
         {
             case sf::Event::GainedFocus:
                 focused = true;
-                std::cout << "is focused" << std::endl;
+                // std::cout << "is focused" << std::endl;
                 break;
             case sf::Event::LostFocus:
                 focused = false;
-                std::cout << "is NOT focused" << std::endl;
+                // std::cout << "is NOT focused" << std::endl;
                 break;
             case sf::Event::KeyPressed:
                 if (focused)
