@@ -18,21 +18,71 @@ int usage()
     return 0;
 }
 
+void host_loop(Entity warning)
+{
+    create_host();
+    destroy(warning);
+
+    Uno uno;
+    uno.launch_game();
+
+    while (is_window_open()) {
+        update();
+    }
+}
+
+void client_loop(char *ip, Entity warning)
+{
+    create_client(ip);
+    destroy(warning);
+
+    Uno uno;
+    uno.get_game();
+
+    while (is_window_open()) {
+        update();
+    }
+}
+
 int main(int ac, char **av)
 {
     if (ac != 1 && ac != 2)
         return usage();
     initialize(true);
 
-    Uno uno;
-    uno.launch_game();
+    Entity warning = create();
+    if (ac == 1)
+        addComponent<Text>(warning, { "Waiting for client to connect", 25, 1, {100, 500} });
+    else if (ac == 2)
+        addComponent<Text>(warning, { "Waiting for server to connect", 25, 1, {100, 500} });
+
+    for (int i = 0; i < 500000; i++) {
+        if (is_window_open())
+            update();
+    }
 
     if (ac == 1)
-        create_host();
+        host_loop(warning);
     else if (ac == 2)
-        create_client(av[1]);
+        client_loop(av[1], warning);
+
+    // destroy(warning);
+
+    // Uno uno;
+    // uno.launch_game();
+
+    // std::string text = "This is a test";
+    // if (is_client())
+    //     _core->client_recieves();
+    // else if (is_host())
+    //     _core->host_sends(text);
 
     while (is_window_open()) {
+        // std::string text = "This is a test";
+        // if (is_client())
+        //     _core->client_sends(text);
+        // else if (is_host())
+        //     _core->host_recieves();
         update();
     }
 

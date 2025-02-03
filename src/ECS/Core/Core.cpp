@@ -145,3 +145,37 @@ void Core::create_client(char *ip)
     client = new Client();
     client->start(ip);
 }
+
+bool Core::is_host()
+{
+    if (host)
+        return true;
+    return false;
+}
+
+bool Core::is_client()
+{
+    if (client)
+        return true;
+    return false;
+}
+
+void Core::host_sends(std::string message)
+{
+    host->send(message);
+}
+
+void Core::client_sends(std::string message)
+{
+    client->send(message);
+}
+
+std::string Core::host_recieves()
+{
+    return host->recieve();
+}
+
+std::string Core::client_recieves()
+{
+    return client->recieve();
+}

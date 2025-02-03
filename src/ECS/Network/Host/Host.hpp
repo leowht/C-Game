@@ -19,6 +19,7 @@ private:
     asio::io_context io;
     asio::ip::tcp::acceptor acceptor;
     std::unique_ptr<std::thread> io_thread;
+    asio::ip::tcp::socket socket;
 
     void accept_connections();
 
@@ -27,6 +28,8 @@ public:
     ~Host();
 
     void start();
+    void send(std::string message);
+    std::string recieve();
     void stop();
 };
 

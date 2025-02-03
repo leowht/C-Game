@@ -5,33 +5,6 @@
 ** Core
 */
 
-// #ifndef CORE
-// #define CORE
-
-// #include "../Graphical/Graphical.hpp"
-
-// class Core {
-// private:
-//     Graphical _graphical;
-// public:
-//     Core()
-//         : _graphical() {};
-//     ~Core(){};
-
-//     void update(void)
-//     {
-//         _graphical.update();
-//     }
-
-//     bool isOpen(void)
-//     {
-//         return _graphical.isOpen();
-//     }
-// };
-
-// #endif /* !Core */
-
-
 #ifndef CORE
 #define CORE
 
@@ -104,8 +77,14 @@ public:
 
     bool window_open();
 
+    bool is_host();
+    bool is_client();
     void create_host();
     void create_client(char *ip);
+    void host_sends(std::string message);
+    void client_sends(std::string message);
+    std::string host_recieves();
+    std::string client_recieves();
 };
 
 #endif /* !CORE */

@@ -13,6 +13,8 @@ void Uno::launch_game()
 {
     for (int i = 0; i != 5; i++) {
         draw_card("host");
+        while (host_recieves() != "Waiting for card") {}
+        std::cout << "Proceeding" << std::endl;
         draw_card("client");
     }
 }
@@ -37,14 +39,19 @@ void Uno::draw_card(const std::string player)
 
     Entity card = create();
 
-    addComponent<Renderable>(card, { card_number, 0, {0.3, 0.3} });
-
     if (player == "host") {
-        addComponent<Position>(card, { {100, 50} });
-        _host_hand.push_back(card);
-    } else {
+        addComponent<Renderable>(card, { card_number, 0, {0.3, 0.3} });
         addComponent<Position>(card, { {100, 780} });
+
+        _host_hand.push_back(card);
+    } else if (player == "client") {
+        addComponent<Renderable>(card, { 600, 0, {0.3, 0.3} });
+        addComponent<Position>(card, { {100, 50} });
+
         _client_hand.push_back(card);
+
+        host_sends("Sending card");
+        host_sends(std::to_string(card_number));
     }
 
     // addComponent<Clickable>(card, { false, {0, 0}, std::bind(onCardClick, card) });
@@ -72,4 +79,44 @@ void Uno::rearrange_player(const std::vector<Entity> hand)
         pos.pos[0] = (card_size * i) + 20;
         i++;
     }
+}
+
+void Uno::get_game()
+{
+    std::cout << "I'm here" << std::endl;
+    for (int i = 0; i != 5; i++) {
+        add_host_card();
+        std::cout << "    Added host" << std::endl;
+        std::string waiting = "Waiting for card";
+        client_sends(waiting);
+        std::cout << "Message sent" << std::endl;
+        while (client_recieves() != "Sending card") {}
+        add_client_card(client_recieves());
+        std::cout << "    Added client" << std::endl;
+    }
+}
+
+void Uno::add_host_card()
+{
+    Entity card = create();
+
+    addComponent<Renderable>(card, { 600, 0, {0.3, 0.3} });
+    addComponent<Position>(card, { {100, 50} });
+
+    _host_hand.push_back(card);
+
+    rearrange_cards("host");
+}
+
+void Uno::add_client_card(std::string card_number)
+{
+    std::cout << "Creating client card" << std::endl;
+    Entity card = create();
+
+    addComponent<Renderable>(card, { std::stoi( card_number ), 0, {0.3, 0.3} });
+    addComponent<Position>(card, { {100, 780} });
+
+    _client_hand.push_back(card);
+
+    rearrange_cards("client");
 }

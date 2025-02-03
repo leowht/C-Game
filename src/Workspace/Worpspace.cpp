@@ -29,6 +29,14 @@ Entity Workspace::create()
     return _core->entityManager.createEntity();
 }
 
+void Workspace::destroy(Entity entity)
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    _core->componentRegistry.entityDestroyed(entity);
+}
+
 void Workspace::cleanup()
 {
     delete _core;
@@ -57,4 +65,52 @@ void Workspace::create_client(char *ip)
         throw std::runtime_error("Core is not initialized!");
 
     _core->create_client(ip);
+}
+
+bool Workspace::is_host()
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    return _core->is_host();
+}
+
+bool Workspace::is_client()
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    return _core->is_client();
+}
+
+void Workspace::host_sends(std::string message)
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    return _core->host_sends(message);
+}
+
+void Workspace::client_sends(std::string message)
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    return _core->client_sends(message);
+}
+
+std::string Workspace::host_recieves()
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    return _core->host_recieves();
+}
+
+std::string Workspace::client_recieves()
+{
+    if (!_core)
+        throw std::runtime_error("Core is not initialized!");
+
+    return _core->client_recieves();
 }

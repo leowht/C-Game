@@ -27,6 +27,9 @@ public:
     void launch_game();
     void draw_card(const std::string player);
     void rearrange_cards(const std::string player);
+    void get_game();
+    void add_host_card();
+    void add_client_card(std::string card_number);
 };
 
 #endif /* !Uno */

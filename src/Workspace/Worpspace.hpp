@@ -21,13 +21,20 @@ namespace Workspace
 
     // Entities related functions
     Entity create();
+    void destroy(Entity entity);
 
     // Graphical related functions
     bool is_window_open();
 
     // Network related functions
+    bool is_host();
+    bool is_client();
     void create_host();
     void create_client(char *ip);
+    void host_sends(std::string message);
+    void client_sends(std::string message);
+    std::string host_recieves();
+    std::string client_recieves();
 
 
     template <typename T>

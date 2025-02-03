@@ -18,12 +18,15 @@ class Client
 private:
     asio::io_context io;
     asio::ip::tcp::resolver resolver;
+    asio::ip::tcp::socket socket;
 
 public:
     Client();
     ~Client();
 
     void start(char *ip);
+    void send(std::string message);
+    std::string recieve();
     void stop();
 };
 
