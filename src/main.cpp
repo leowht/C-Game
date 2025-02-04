@@ -27,6 +27,14 @@ void host_loop(Entity warning)
     uno.launch_game();
 
     while (is_window_open()) {
+        if (uno.is_my_turn()) {
+            uno.play("host");
+        } else {
+            while (host_recieves(true) != "Sending move") {
+                update();
+            }
+            uno.process_move(host_recieves(false));
+        }
         update();
     }
 }
@@ -40,6 +48,14 @@ void client_loop(char *ip, Entity warning)
     uno.get_game();
 
     while (is_window_open()) {
+        if (uno.is_my_turn()) {
+            uno.play("client");
+        } else {
+            while (client_recieves(true) != "Sending move") {
+                update();
+            }
+            uno.process_move(client_recieves(false));
+        }
         update();
     }
 }

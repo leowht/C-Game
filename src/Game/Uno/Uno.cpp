@@ -15,21 +15,38 @@ void Uno::launch_game()
         throw std::runtime_error("Core is not initialized!");
 
     for (int i = 0; i != 5; i++) {
-        draw_card("host");
+        draw_card("me");
 
-        while (host_recieves() != "Waiting for card") {}
+        while (host_recieves(false) != "Waiting for card") {}
 
-        draw_card("client");
+        draw_card("opponent");
+    }
+
+    while (host_recieves(false) != "All set") {}
+
+    _turn = true;
+    _played = false;
+    _played_card = -1;
+}
+
+
+void Uno::onCardClick(Entity card)
+{
+    if (!_played) {
+        Renderable& ren = getComponent<Renderable>(card);
+
+        _played = true;
+        _played_card = ren.spriteID;
+
+        _cards.play_card(ren.spriteID);
+
+        if ( std::find(_my_hand.begin(), _my_hand.end(), card) != _my_hand.end() ) {
+            _my_hand.erase(find(_my_hand.begin(), _my_hand.end(), card));
+            destroy(card);
+        }
     }
 }
 
-void onCardClick(Entity card)
-{
-    Position& pos = getComponent<Position>(card);
-    std::cout << "Position : " << pos.pos[0] << " " << pos.pos[1] << std::endl;
-    pos.pos[0] = 350;
-    pos.pos[1] = 400;
-}
 
 void Uno::draw_card(const std::string player)
 {
@@ -40,33 +57,33 @@ void Uno::draw_card(const std::string player)
 
     Entity card = create();
 
-    if (player == "host") {
+    if (player == "me") {
         addComponent<Renderable>(card, { card_number, 0, {0.3, 0.3} });
         addComponent<Position>(card, { {100, 780} });
 
-        _host_hand.push_back(card);
-    } else if (player == "client") {
+        _my_hand.push_back(card);
+    } else if (player == "opponent") {
         addComponent<Renderable>(card, { 600, 0, {0.3, 0.3} });
         addComponent<Position>(card, { {100, 50} });
 
-        _client_hand.push_back(card);
+        _opponent_hand.push_back(card);
 
         host_sends("Sending card");
         host_sends(std::to_string(card_number));
     }
 
-    // addComponent<Clickable>(card, { false, {0, 0}, std::bind(onCardClick, card) });
-
     rearrange_cards(player);
 }
 
+
 void Uno::rearrange_cards(const std::string player)
 {
-    if (player == "host")
-        rearrange_player(_host_hand);
+    if (player == "me")
+        rearrange_player(_my_hand);
     else
-        rearrange_player(_client_hand);
+        rearrange_player(_opponent_hand);
 }
+
 
 void Uno::rearrange_player(const std::vector<Entity> hand)
 {
@@ -82,6 +99,7 @@ void Uno::rearrange_player(const std::vector<Entity> hand)
     }
 }
 
+
 void Uno::get_game()
 {
     for (int i = 0; i != 5; i++) {
@@ -89,11 +107,17 @@ void Uno::get_game()
         std::string waiting = "Waiting for card";
 
         client_sends(waiting);
-        while (client_recieves() != "Sending card") {}
+        while (client_recieves(false) != "Sending card") {}
 
-        add_client_card(client_recieves());
+        add_client_card(client_recieves(false));
     }
+
+    client_sends("All set");
+
+    _turn = false;
+    _played = false;
 }
+
 
 void Uno::add_host_card()
 {
@@ -102,10 +126,11 @@ void Uno::add_host_card()
     addComponent<Renderable>(card, { 600, 0, {0.3, 0.3} });
     addComponent<Position>(card, { {100, 50} });
 
-    _host_hand.push_back(card);
+    _opponent_hand.push_back(card);
 
-    rearrange_cards("host");
+    rearrange_cards("opponent");
 }
+
 
 void Uno::add_client_card(std::string card_number)
 {
@@ -114,7 +139,66 @@ void Uno::add_client_card(std::string card_number)
     addComponent<Renderable>(card, { std::stoi( card_number ), 0, {0.3, 0.3} });
     addComponent<Position>(card, { {100, 780} });
 
-    _client_hand.push_back(card);
+    _my_hand.push_back(card);
 
-    rearrange_cards("client");
+    rearrange_cards("me");
+}
+
+
+bool Uno::is_my_turn()
+{
+    return _turn;
+}
+
+
+void Uno::play(std::string player)
+{
+    _played = false;
+
+    for (Entity card: _my_hand) {
+        addComponent<Clickable>(card, { false, {0, 0}, std::bind(&Uno::onCardClick, this, card) });
+    }
+
+    while (!_played && is_window_open()) {
+        update();
+    }
+
+    if (!is_window_open())
+        return;
+
+    rearrange_cards("me");
+    rearrange_cards("opponent");
+
+    for (Entity card: _my_hand) {
+        removeComponent<Clickable>(card);
+    }
+
+    if (player == "host") {
+        host_sends("Sending move");
+        sleep(1);
+        host_sends(std::to_string(_played_card));
+    } else if (player == "client") {
+        client_sends("Sending move");
+        sleep(1);
+        client_sends(std::to_string(_played_card));
+    }
+
+    _turn = false;
+}
+
+
+void Uno::process_move(std::string move)
+{
+    if (move == "draw") {
+        add_host_card();
+    } else {
+        _cards.play_card(std::stoi( move ));
+        destroy(_opponent_hand[0]);
+        _opponent_hand.erase(_opponent_hand.begin());
+    }
+
+    rearrange_cards("me");
+    rearrange_cards("opponent");
+
+    _turn = true;
 }

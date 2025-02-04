@@ -26,7 +26,7 @@ public:
 
     void start(char *ip);
     void send(std::string message);
-    std::string recieve();
+    std::string recieve(bool non_blocking);
     void stop();
 };
 

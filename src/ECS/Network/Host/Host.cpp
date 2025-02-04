@@ -51,20 +51,26 @@ void Host::send(std::string message)
     }
 }
 
-std::string Host::recieve()
+std::string Host::recieve(bool non_blocking)
 {
     std::array<char, 128> buffer;
     asio::error_code error;
 
-    size_t len = socket.read_some(asio::buffer(buffer), error);
-    // size_t len = asio::read(socket, asio::buffer(buffer), error);
+    if (non_blocking)
+        socket.non_blocking(true);
+    else
+        socket.non_blocking(false);
 
-    if (!error) {
+    size_t len = socket.read_some(asio::buffer(buffer), error);
+
+    if (error == asio::error::would_block || error == asio::error::try_again) {
+        return "";
+    } else if (!error) {
         std::cout << "[RECIEVED] " << std::string(buffer.data(), len) << std::endl;
         return std::string(buffer.data(), len);
     } else {
         std::cerr << "Error reading data: " << error.message() << std::endl;
-        return nullptr;
+        return "Failure";
     }
 }
 

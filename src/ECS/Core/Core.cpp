@@ -170,12 +170,12 @@ void Core::client_sends(std::string message)
     client->send(message);
 }
 
-std::string Core::host_recieves()
+std::string Core::host_recieves(bool non_blocking)
 {
-    return host->recieve();
+    return host->recieve(non_blocking);
 }
 
-std::string Core::client_recieves()
+std::string Core::client_recieves(bool non_blocking)
 {
-    return client->recieve();
+    return client->recieve(non_blocking);
 }

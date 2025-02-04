@@ -33,8 +33,8 @@ namespace Workspace
     void create_client(char *ip);
     void host_sends(std::string message);
     void client_sends(std::string message);
-    std::string host_recieves();
-    std::string client_recieves();
+    std::string host_recieves(bool non_blocking);
+    std::string client_recieves(bool non_blocking);
 
 
     template <typename T>
@@ -48,6 +48,12 @@ namespace Workspace
     void addComponent(Entity entity, T component) {
         if (_core)
             _core->componentRegistry.addComponent(entity, component);
+    }
+
+    template <typename T>
+    void removeComponent(Entity entity) {
+        if (_core)
+            _core->componentRegistry.removeComponent<T>(entity);
     }
 }
 

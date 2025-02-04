@@ -83,8 +83,8 @@ public:
     void create_client(char *ip);
     void host_sends(std::string message);
     void client_sends(std::string message);
-    std::string host_recieves();
-    std::string client_recieves();
+    std::string host_recieves(bool non_blocking);
+    std::string client_recieves(bool non_blocking);
 };
 
 #endif /* !CORE */

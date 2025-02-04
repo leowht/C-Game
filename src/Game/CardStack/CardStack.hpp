@@ -15,6 +15,7 @@
 #include <ostream>
 
 #include "../../ECS/Entities/Entity.hpp"
+#include "../../Workspace/Worpspace.hpp"
 
 class CardStack
 {
@@ -35,6 +36,8 @@ private:
                             301, 302, 303, 304, 301, 302, 303, 304,
                             400, 400, 400, 400, 500, 500, 500, 500};
 
+    std::vector<Entity> _played_cards;
+
     void create_stack(void);
 
 public:
@@ -42,6 +45,7 @@ public:
     ~CardStack() = default;
 
     int get_top_card(void);
+    void play_card(int card);
 };
 
 #endif /* !CARDSTACK */

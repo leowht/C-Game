@@ -7,20 +7,13 @@
 
 #include "CardStack.hpp"
 
+using namespace Workspace;
+
+
 CardStack::CardStack()
 {
     create_stack();
-
-    // for (int num : _cardstack) {
-    //     std::cout << num << " ";
-    // }
-    // std::cout << std::endl;
 }
-
-// CardStack::~CardStack()
-// {
-//     std::cout << "deleted cardstack" << std::endl;
-// }
 
 void CardStack::create_stack()
 {
@@ -44,4 +37,19 @@ int CardStack::get_top_card()
     _cardstack.erase(_cardstack.begin());
 
     return top_card;
+}
+
+void CardStack::play_card(int card)
+{
+    Entity played_card = create();
+
+    addComponent<Renderable>(played_card, { card , 0, {0.3, 0.3} });
+    addComponent<Position>(played_card, { {350, 400} });
+
+    _played_cards.push_back(played_card);
+
+    if (_played_cards.size() > 1) {
+        destroy(_played_cards[0]);
+        _played_cards.erase(_played_cards.begin());
+    }
 }

@@ -99,18 +99,18 @@ void Workspace::client_sends(std::string message)
     return _core->client_sends(message);
 }
 
-std::string Workspace::host_recieves()
+std::string Workspace::host_recieves(bool non_blocking)
 {
     if (!_core)
         throw std::runtime_error("Core is not initialized!");
 
-    return _core->host_recieves();
+    return _core->host_recieves(non_blocking);
 }
 
-std::string Workspace::client_recieves()
+std::string Workspace::client_recieves(bool non_blocking)
 {
     if (!_core)
         throw std::runtime_error("Core is not initialized!");
 
-    return _core->client_recieves();
+    return _core->client_recieves(non_blocking);
 }

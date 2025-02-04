@@ -22,8 +22,7 @@ Client::~Client()
 void Client::start(char *ip)
 {
     try {
-        asio::ip::tcp::resolver::query query(ip, "8000");
-        asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(query);
+        asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(ip, "8000");
 
         asio::connect(socket, endpoints);
 
@@ -51,15 +50,22 @@ void Client::send(std::string message)
     }
 }
 
-std::string Client::recieve()
+std::string Client::recieve(bool non_blocking)
 {
     std::array<char, 128> buffer;
     asio::error_code error;
 
-    size_t len = socket.read_some(asio::buffer(buffer), error);
-    // size_t len = asio::read(socket, asio::buffer(buffer), error);
+    if (non_blocking)
+        socket.non_blocking(true);
+    else
+        socket.non_blocking(false);
 
-    if (!error) {
+
+    size_t len = socket.read_some(asio::buffer(buffer), error);
+
+    if (error == asio::error::would_block || error == asio::error::try_again) {
+        return "";
+    } else if (!error) {
         std::cout << "[RECIEVED] " << std::string(buffer.data(), len) << std::endl;
         return std::string(buffer.data(), len);
     } else {
