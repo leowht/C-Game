@@ -62,7 +62,8 @@ add_library(GameLib
     Game/CardStack/CardStack.cpp
     Game/CardStack/CardStack.hpp
 
-    Game/Uno/Uno.cpp
+    Game/Uno/Game.cpp
+    Game/Uno/Setup.cpp
     Game/Uno/Uno.hpp
 )
 

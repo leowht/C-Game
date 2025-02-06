@@ -49,6 +49,7 @@ public:
     void play_card(int card);
 
     int last_played_card();
+    Entity last_played_entity();
 };
 
 #endif /* !CARDSTACK */

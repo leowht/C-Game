@@ -71,26 +71,6 @@ void Core::registerSystems()
 
 void Core::registerJSON()
 {
-    // JSONManager.registerCategory("spawns");
-    // JSONManager.registerCategory("scenes");
-    // JSONManager.registerCategory("entities");
-
-    // // Add JSON files for each spawn ID
-    // try {
-    //     JSONManager.addJSON("spawns", 1, SpawnParser.JsonParser.readfile("JSON/entities/1.json"));
-    //     JSONManager.addJSON("spawns", 2, SpawnParser.JsonParser.readfile("JSON/entities/2.json"));
-    //     JSONManager.addJSON("spawns", 3, SpawnParser.JsonParser.readfile("JSON/entities/3.json"));
-    //     JSONManager.addJSON("spawns", 4, SpawnParser.JsonParser.readfile("JSON/entities/4.json"));
-    //     JSONManager.addJSON("spawns", 91, SpawnParser.JsonParser.readfile("JSON/entities/91.json"));
-
-    //     // Dobkeratops
-    //     JSONManager.addJSON("entities", 10, SpawnParser.JsonParser.readfile("JSON/entities/10.json"));
-    //     JSONManager.addJSON("entities", 90, SpawnParser.JsonParser.readfile("JSON/entities/90.json"));
-
-    //     std::cout << "Spawn JSON files added successfully." << std::endl;
-    // } catch (const std::exception& e) {
-    //     std::cerr << "Error adding JSON files: " << e.what() << std::endl;
-    // }
 }
 
 void Core::update()
@@ -103,7 +83,10 @@ void Core::update()
 
     const float deltaTime = timer.getSecondsElapsed();
 
+    // std::cout << "TRYING TO UPDATE timer : " << deltaTime << std::endl;
+
     if (timer.getSecondsElapsed() > 0.01) {
+        // std::cout << "updating" << std::endl;
         timer.reset();
         // Update all systems
         systemManager.updateSystems(deltaTime);
@@ -120,9 +103,6 @@ void Core::update()
         }
 
         timer.start();
-
-        // if (host)
-        //     host->update();
     }
 
 }

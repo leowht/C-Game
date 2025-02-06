@@ -60,7 +60,6 @@ public:
 
                     if (((mPos[0] > pos.pos[0]) && (mPos[0] < (pos.pos[0] + cli.sizeClickZone[0]))) &&
                         (mPos[1] > pos.pos[1]) && (mPos[1] < (pos.pos[1] + cli.sizeClickZone[1]))) {
-                            std::cout << "The button is clicked !" << std::endl;
                             cli.clicked = true;
 
                         if (cli.onClick)

@@ -70,3 +70,11 @@ int CardStack::last_played_card()
 
     return ren.spriteID;
 }
+
+Entity CardStack::last_played_entity()
+{
+    if (_played_cards.size() != 1)
+        return -1;
+
+    return _played_cards[0];
+}
