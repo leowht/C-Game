@@ -22,6 +22,7 @@ private:
     bool _turn;
     bool _played;
     int _played_card;
+    bool _skip_turn;
 
     void draw_card(const std::string player);
 
@@ -31,6 +32,8 @@ private:
     void add_client_card(std::string card_number);
 
     void onCardClick(Entity card);
+
+    bool is_valid_move(int card);
 public:
     Uno()
         : _cards() {};
@@ -41,9 +44,14 @@ public:
 
     // Host & Client functions
     void rearrange_cards(const std::string player);
+
     void set_starting_player(bool me);
     bool is_my_turn();
+
     void play(std::string player);
+    void draw();
+    bool should_draw();
+    void send_action(std::string player);
     void process_move(std::string move);
 
     // Client functions

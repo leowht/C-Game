@@ -33,8 +33,10 @@ void host_loop(Entity warning)
             while (host_recieves(true) != "Sending move") {
                 update();
             }
+
             uno.process_move(host_recieves(false));
         }
+
         update();
     }
 }
@@ -54,8 +56,10 @@ void client_loop(char *ip, Entity warning)
             while (client_recieves(true) != "Sending move") {
                 update();
             }
+
             uno.process_move(client_recieves(false));
         }
+
         update();
     }
 }

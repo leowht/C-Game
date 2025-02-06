@@ -45,7 +45,10 @@ public:
     ~CardStack() = default;
 
     int get_top_card(void);
+    bool cards_left();
     void play_card(int card);
+
+    int last_played_card();
 };
 
 #endif /* !CARDSTACK */

@@ -39,6 +39,13 @@ int CardStack::get_top_card()
     return top_card;
 }
 
+bool CardStack::cards_left()
+{
+    if (_cardstack.empty())
+        return -false;
+
+    return true;
+}
 void CardStack::play_card(int card)
 {
     Entity played_card = create();
@@ -52,4 +59,14 @@ void CardStack::play_card(int card)
         destroy(_played_cards[0]);
         _played_cards.erase(_played_cards.begin());
     }
+}
+
+int CardStack::last_played_card()
+{
+    if (_played_cards.size() != 1)
+        return -1;
+
+    Renderable& ren = getComponent<Renderable>(_played_cards[0]);
+
+    return ren.spriteID;
 }
