@@ -119,11 +119,11 @@ void Uno::send_action(std::string player)
 {
     if (player == "host") {
         host_sends("Sending move");
-        sleep(1);
+        std::this_thread::sleep_for(std::chrono::seconds(1));
         host_sends(std::to_string(_played_card));
     } else if (player == "client") {
         client_sends("Sending move");
-        sleep(1);
+        std::this_thread::sleep_for(std::chrono::seconds(1));
         client_sends(std::to_string(_played_card));
     }
 

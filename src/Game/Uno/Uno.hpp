@@ -11,6 +11,8 @@
 #include "../../Workspace/Worpspace.hpp"
 #include "../CardStack/CardStack.hpp"
 
+#include <thread>
+
 class Uno
 {
 private:

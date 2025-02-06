@@ -23,6 +23,9 @@ set(EXECUTABLE_SOURCES src/main.cpp)
 #     SYSTEM)
 # FetchContent_MakeAvailable(SFML)
 
+set(SFML_DIR "C:/SFML-2.5.0/lib/cmake/SFML")
+include_directories("C:/Libraries/asio/include")
+
 find_package(SFML 2.5 COMPONENTS system window graphics audio network REQUIRED)
 
 # Add executable
@@ -31,6 +34,7 @@ add_executable(${PROJECT_NAME} ${EXECUTABLE_SOURCES})
 # Include project directories
 target_include_directories(${PROJECT_NAME}
     PUBLIC
+        ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/src
 )
 

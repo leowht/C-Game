@@ -1,0 +1,12 @@
+to compile on windows do the following : 
+
+go to the root of the project
+run "cmake -S . -B build/ -G "Visual Studio 17 2022"" (i think)
+run "cmake --build build/ --config Debug"
+
+go in the build/Debug file, there should be a Frodo.exe
+run Frodo.exe
+
+if nothing happens, copy and paste the files in the /files folder and add them in the same folder as Frodo.exe
+
+".\build\Debug\Frodo.exe" to run the program

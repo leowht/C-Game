@@ -70,5 +70,6 @@ add_library(GameLib
 # Specify include directories for the library
 target_include_directories(GameLib PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
+    "C:/Libraries/asio/include"
     # Add other include directories if necessary
 )
