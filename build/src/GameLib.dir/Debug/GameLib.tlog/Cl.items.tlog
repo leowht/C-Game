@@ -1,0 +1,16 @@
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\ComponentFactory.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\ComponentFactory.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\ComponentTypeID.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\ComponentTypeID.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Core\Core.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\Core.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Dynamic_Libraries\DynamicLibrary.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\DynamicLibrary.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Entities\EntityManager.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\EntityManager.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\SFMLGraphical.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\SFMLGraphical.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\SFMLInput.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\SFMLInput.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\SFMLRenderer.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\SFMLRenderer.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\JSONParser\JSONComponentParser.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\JSONComponentParser.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Network\Client\Client.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\Client.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Network\Host\Host.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\Host.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\SpawnerParser\SpawnerParser.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\SpawnerParser.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\Workspace\Worpspace.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\Worpspace.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\Game\CardStack\CardStack.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\CardStack.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\Game\Uno\Game.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\Game.obj
+C:\Users\Léo\Documents\GitHub\C-Game\src\Game\Uno\Setup.cpp;C:\Users\Léo\Documents\GitHub\C-Game\build\src\GameLib.dir\Debug\Setup.obj

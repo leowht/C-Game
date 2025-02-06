@@ -1,0 +1,10 @@
+^C:\USERS\LÉO\DOCUMENTS\GITHUB\C-GAME\SRC\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Léo/Documents/GitHub/C-Game -BC:/Users/Léo/Documents/GitHub/C-Game/build --check-stamp-file C:/Users/Léo/Documents/GitHub/C-Game/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
