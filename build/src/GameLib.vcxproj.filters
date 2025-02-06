@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\ComponentFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\ComponentTypeID.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Core\Core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Dynamic_Libraries\DynamicLibrary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Entities\EntityManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\SFMLGraphical.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\SFMLInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\SFMLRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\JSONParser\JSONComponentParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Network\Client\Client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Network\Host\Host.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\SpawnerParser\SpawnerParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\Workspace\Worpspace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\Game\CardStack\CardStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\Game\Uno\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Léo\Documents\GitHub\C-Game\src\Game\Uno\Setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\ComponentFactory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\ComponentRegistry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\Components.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\ComponentStorage.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Components\ComponentTypeID.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Core\Core.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Dynamic_Libraries\DeleteDL.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Dynamic_Libraries\DynamicLibrary.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Entities\Entity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Entities\EntityManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\Graphical.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\IGraphical.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Graphical\SFMLGraphical.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\JSONParser\JSONComponentParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\JSONParser\JSONStorage.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Network\Client\Client.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Network\Host\Host.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\SpawnerParser\SpawnerParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\System_Handling\System.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\System_Handling\SystemManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Systems\ClickSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Systems\CollisionsSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Systems\InputSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Systems\MovementSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Systems\RenderSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Systems\SpawnerSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\ECS\Timer\Timer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\Workspace\Worpspace.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\Game\CardStack\CardStack.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Léo\Documents\GitHub\C-Game\src\Game\Uno\Uno.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Léo\Documents\GitHub\C-Game\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3AEE4EE6-FB74-3E5D-8CFE-C37A4FBDCA9A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{83F49193-5BC6-327B-9866-8EA936536E16}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
