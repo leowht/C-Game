@@ -234,6 +234,7 @@ void Uno::play(std::string player)
 
 void Uno::process_move(std::string move)
 {
+    std::cout << "About to stoi : " << move << std::endl;
     int op_move = std::stoi( move );
 
     if (op_move < 0) {
@@ -241,7 +242,7 @@ void Uno::process_move(std::string move)
             add_host_card();
         }
     } else if (op_move != 0) {
-        _cards.play_card(std::stoi( move ));
+        _cards.play_card( op_move );
         destroy(_opponent_hand[0]);
         _opponent_hand.erase(_opponent_hand.begin());
     }

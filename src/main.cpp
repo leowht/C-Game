@@ -22,6 +22,7 @@ void host_loop(Entity warning)
 {
     create_host();
     destroy(warning);
+    std::string message = "";
 
     Uno uno;
     uno.launch_game();
@@ -30,11 +31,16 @@ void host_loop(Entity warning)
         if (uno.is_my_turn()) {
             uno.play("host");
         } else {
-            while (host_recieves(true) != "Sending move") {
+            while (message != "Sending move") {
                 update();
+                message = host_recieves(true);
+
+                if (message == "Failure")
+                    return;
             }
 
-            uno.process_move(host_recieves(false));
+            message = host_recieves(false);
+            uno.process_move(message);
         }
 
         update();
@@ -45,6 +51,7 @@ void client_loop(char *ip, Entity warning)
 {
     create_client(ip);
     destroy(warning);
+    std::string message = "";
 
     Uno uno;
     uno.get_game();
@@ -53,11 +60,16 @@ void client_loop(char *ip, Entity warning)
         if (uno.is_my_turn()) {
             uno.play("client");
         } else {
-            while (client_recieves(true) != "Sending move") {
+            while (message != "Sending move") {
                 update();
+                message = client_recieves(true);
+
+                if (message == "Failure")
+                    return;
             }
 
-            uno.process_move(client_recieves(false));
+            message = client_recieves(false);
+            uno.process_move(message);
         }
 
         update();

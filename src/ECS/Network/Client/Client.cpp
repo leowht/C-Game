@@ -69,8 +69,9 @@ std::string Client::recieve(bool non_blocking)
         std::cout << "[RECIEVED] " << std::string(buffer.data(), len) << std::endl;
         return std::string(buffer.data(), len);
     } else {
-        std::cerr << "Error reading data: " << error.message() << std::endl;
-        return nullptr;
+        std::cerr << "Server disconnected" << std::endl;
+        // std::cerr << "Error reading data: " << error.message() << std::endl;
+        return "Failure";
     }
 }
 
